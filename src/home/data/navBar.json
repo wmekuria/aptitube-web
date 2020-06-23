@@ -1,0 +1,26 @@
+{
+     "logo": {
+         "text":"DANZATLAS"
+     },
+     "menuBtns":[
+         {
+             "text":"TEAM"
+         },
+         {
+            "text":"ESTILOS"
+        },
+        {
+            "text":"CLASES"
+        }
+     ],
+     "rightBtns":[
+       {
+           "text":"INICIAR SESIÓN",
+           "style":"login"
+       },
+       {
+           "text":"CREAR CUENTA",
+           "style":"signup"
+       }
+    ]
+}
