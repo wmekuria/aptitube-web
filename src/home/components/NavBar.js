@@ -6,7 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
 import navBarData from '../data/navBar.json'
 
 const useStyles = makeStyles((theme) => ({
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     background: theme.palette.primary.dark,
     padding:0,
-    height:100,
+    minHeight:50
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   login:{
     flexGrow: 1,
-    height:100,
+    height:50,
     background: theme.palette.primary.main,
     color: theme.palette.primary.dark,
     textTransform: 'uppercase',
@@ -35,33 +36,58 @@ const useStyles = makeStyles((theme) => ({
   },
   signup:{
     flexGrow: 1,
-    height:100,
+    height:50,
     background: theme.palette.primary.dark,
     color: theme.palette.primary.main,
-    fontWeight: theme.typography.fontWeightBold,
+    fontWeight: theme.typography.fontWeightLight,
     textTransform: 'uppercase',
     textAlign: 'center',
     borderRadius: 0  
   },
   logo:{
     flexGrow: 1,
-    height:100,
+    height:50,
     background: theme.palette.primary.light,
     color: theme.palette.primary.dark,
-    fontWeight: theme.typography.fontWeightBold,
+    fontWeight: theme.typography.fontWeightLight,
     textTransform: 'uppercase',
     textAlign: 'center',
     borderRadius: 0  
   },
   menu: {
     flexGrow: 1,
-    height:100,
+    height:50,
     background: theme.palette.primary.dark,
     color: theme.palette.primary.light,
     fontWeight: theme.typography.fontWeightLight,
     textTransform: 'uppercase',
     textAlign: 'center',
     borderRadius: 0
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: 35,
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
   },
 }));
 
@@ -87,6 +113,19 @@ export default function ButtonAppBar() {
                     </Typography>
                 </Button>
             ))}
+                      <div className={classes.search}>
+            <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </div>
             <div className={classes.right}/>
                 {rightBtns.map((rightBtn)=>(
                     <Button className={classes[rightBtn.style]}>
