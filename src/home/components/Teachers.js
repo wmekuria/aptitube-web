@@ -51,6 +51,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     borderRadius: 0  ,
     justifyContent: 'flex-start',
+    height:65,
+    width:230
   }
 }));
 
@@ -92,7 +94,9 @@ function Collections(props) {
   return (
     <div className={classes.root}>
       <Button className={classes.header}>
-          Teachers
+        <Typography align="center" variant="h5" marked="center" className={classes.header}>
+              TEACHERS
+        </Typography>
       </Button>
 
       <GridList 
